@@ -1,7 +1,6 @@
-# backup
-backs it up
+# Backup
 
-# Add these cronjobs
+## Add the following cronjobs
 
 ~~~~
 50	3	*	*	*	/bin/bash /home/backup/backup.sh
