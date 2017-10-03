@@ -1,11 +1,16 @@
 #!/bin/bash
 previous_work_dir=$(pwd)
 timestamp=$(date +%d-%m-%Y_%H-%M-%S)
-backup_storage_dir="/home/backup/"$timestamp
+backup_storage_dir="/home/backup/"
 mail_dir="/var/vmail"
 www_root_dir="/var/www/html"
 
 echo -e "----------\nBackup started: $timestamp"
+echo "Deleting old backups"
+find "$backup_storage_dir" -mtime +3 -type d -delete
+
+backup_storage_dir="/home/backup/"$timestamp
+
 mkdir "$backup_storage_dir"
 echo "$timestamp		BEGIN" > $backup_storage_dir/log.txt
 
