@@ -7,7 +7,7 @@ www_root_dir="/var/www/html"
 
 echo -e "----------\nBackup started: $timestamp"
 echo "Deleting old backups"
-find "$backup_storage_dir" -mtime +3 -type d -delete
+find "$backup_storage_dir" -mtime +3 -type d -exec rm -r {} ';'
 
 backup_storage_dir="/home/backup/"$timestamp
 
