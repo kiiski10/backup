@@ -2,7 +2,7 @@
 timestamp=$(date +%d-%m-%Y_%H-%M-%S)
 backup_storage_dir="/home/backup/storage"
 
-#     Move the latest backup directory from daily to weekly storage dir
+#     Copy the latest backup directory from daily to weekly storage dir
 latest=$(ls -t $backup_storage_dir/daily | head -1)
 cp "$backup_storage_dir/daily/$latest" $backup_storage_dir/weekly
 
