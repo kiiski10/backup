@@ -26,14 +26,15 @@ check_for_errors () {
 	/bin/bash -c "$command"
 	
 	# Evaluate success
-	timestamp=$(date +%d-%m-%Y_%H-%M-%S)
 	if [ "$?" -ne "0" ]
 		# Error
 		then
+			timestamp=$(date +%d-%m-%Y_%H-%M-%S)
 			echo "$timestamp		ERR ^^" >> "$backup_storage_dir/log.txt"
 			tail -n1 "$backup_storage_dir/log.txt"
 		# Success
 		else
+			timestamp=$(date +%d-%m-%Y_%H-%M-%S)
 			echo "$timestamp		OK ^^" >> "$backup_storage_dir/log.txt"
 			tail -n1 "$backup_storage_dir/log.txt"
 	fi
